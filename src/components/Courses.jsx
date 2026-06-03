@@ -1,18 +1,15 @@
 export default function Courses(){
 
-    function send(){
-        let name=document.getElementsByClassName("name")[0].innerText;
-        let price=document.getElementsByClassName("price")[0].innerText;
-        let duration=document.getElementsByClassName("duration")[0].innerText;
-        let desc=document.getElementsByClassName("desc")[0].innerText;
+    function send(course){
+        
 
         var whatsapp_no ="6232955328";
 
         var text=
-          "name : "+name+
-          "%0Aprice : "+price+
-          "%0Aduration : "+duration+
-          "%0Adesc : "+desc;
+          "name : "+ course. name+
+          "%0Aprice : "+ course. price+
+          "%0Aduration : "+ course. duration+
+          "%0Adesc : "+ course. description;
 
         var url="http://wa.me/91"+whatsapp_no+"?text=" +text  ;
 
@@ -22,43 +19,42 @@ export default function Courses(){
     let courses=[
         {
             name:"c/c++",
-            dyration:"3 month",
+            duration:"3 month",
             fees:"5,000",
-            description:"It is object oriented programming language, easy to learn and understand"
+            description:"C and C++ are highly efficient, compiled computer programming languages used to build operating systems, game engines, and low-level system software"
         },
         {
             name:"python",
-            dyration:"4 month",
+            duration:"4 month",
             fees:"6,000",
-            description:"It is versatile high level programming language, easy to learn and understand"
+            description:"Python is a popular, high-level programming language ,  it is used for a wide range of applications, including website development, task automation, data analysis"
         },
         {
             name:"Data Analytics",
-            dyration:"4 month",
+            duration:"4 month",
             fees:"10,000",
-            description:"it is the process of collecting cleaning , and analyzing row data to uncover hclassden patterns"
+            description:"Data analytics is the process of collecting, cleansing, and examining raw data to uncover hidden patterns, draw meaningful conclusions, and make informed decisions"
         },
         {
             name:"Web Development",
-            dyration:"8 month",
+            duration:"8 month",
             fees:"20,000",
-            description:"it is the process of building programming , and maintaining web applications for the internet"
+            description:"Web development is the process of building, creating, and maintaining websites and web applications that run on the internet or an intranet"
         },
         {
             name:"Data Science",
-            dyration:"5 month",
+            duration:"5 month",
             fees:"12,000",
             description:"it is field that combines mathematics , statistics , computer programming to extract meaningful insights from large amount of data"
         },
         {
-            name:"Execl",
-            dyration:"2 month",
+            name:"Excel",
+            duration:"2 month",
             fees:"4,000",
             description:"Microsoft Excel is a digital spreadsheet program that organizes, calculates, and analyzes data using a grclassName of rows and columns"
         }
     ];
 
-    let blank=[];
 
 
    return(
@@ -68,53 +64,20 @@ export default function Courses(){
         </nav>
 
         <div className="allbox">
-            <div className="box">
-                <h2 className="name">C/C++</h2>
-                <p className="price">price : <b>5,000</b></p>
-                <p className="duration">duration : <b>3 Month</b></p>
-                <p className="desc">It is object oriented programming language, easy to learn and understand</p>
-                <button className="button" onClick={send}>Enroll</button>
-            </div>
+           {courses.map((item,index)=>{
 
-              {/* <div className="box">
-                <h2 className="name">Python</h2>
-                <p className="price">price : <b>6,000</b></p>
-                <p className="duration">duration : <b>3 Month</b></p>
-                <p className="desc">It is versatile high level programming language, easy to learn and understand</p>
-                <button className="button" onClick={send}>Enroll</button>
+            return(
+                <div key={index} className="box">
+                <h1>{item.name}</h1>
+                <p>Duration : <b>{item.duration}</b></p>
+                <p>Fees : <b>{item.fees}</b></p>
+                <p>{item.description}</p>
+                <button className="button" onClick={()=> send(item)}>Enroll</button>
             </div>
+            );
+           })}
 
-             <div className="box">
-                <h2 className="name">Data Analytics</h2>
-                <p className="price">price : <b>10,000</b></p>
-                <p className="duration">duration : <b>4 Month</b></p>
-                <p className="desc">it is the process of collecting cleaning , and analyzing row data to uncover hclassden patterns</p>
-                <button  className="button"onClick={send}>Enroll</button>
-            </div>
-
-             <div className="box">
-                <h2 className="name">Web Development</h2>
-                <p className="price">price : <b>20,000</b></p>
-                <p className="duration">duration : <b>8 Month</b></p>
-                <p className="desc">it is the process of building programming , and maintaining web applications for the internet</p>
-                <button className="button" onClick={send}>Enroll</button>
-            </div>
-
-             <div className="box">
-                <h2 className="name">Data Science</h2>
-                <p className="price">price : <b>15,000</b></p>
-                <p className="duration">duration : <b>5 Month</b></p>
-                <p className="desc">it is field that combines mathematics , statistics , computer programming to extract meaningful insights from large amount of data</p>
-                <button className="button" onClick={send}>Enroll</button>
-            </div>
-
-             <div className="box">
-                <h2 className="name">Excel</h2>
-                <p className="price">price : <b>3,000</b></p>
-                <p className="duration">duration : <b>1.5 Month</b></p>
-                <p className="desc">Microsoft Excel is a digital spreadsheet program that organizes, calculates, and analyzes data using a grclassName of rows and columns</p>
-                <button className="button" onClick={send}>Enroll</button>
-            </div> */}
+              
         </div>
 
         <footer id="footer">
